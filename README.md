@@ -8,10 +8,15 @@ docker-compose --compatibility --env-file .env -f docker-compose.pub.yml down
 
 **Образы:**
 Nginx (proxy):   1.23.1
+
 Nginx (backend): 1.23.1
+
 MariaDB:         10.6.11
+
 WordPress:       6.1.1-php8.2-fpm
-Redis:           5.0.7-alpine          
+
+Redis:           5.0.7-alpine     
+
 phpMyAdmin:      Latest
 
 **Opcache** - их главная задача — единожды скомпилировать каждый PHP-скрипт 
