@@ -3,6 +3,7 @@ reverse proxy с балансировкой нагрузки,  в контейн
 
 Запуск:
 docker-compose --compatibility --env-file .env -f docker-compose.pub.yml up -d
+
 Останов:
 docker-compose --compatibility --env-file .env -f docker-compose.pub.yml down 
 
