@@ -77,7 +77,7 @@ $ docker-compose --compatibility --env-file .env -f docker-compose.pub.yml up -d
 * https://example.com
 
 ## Учетные данные
-Login: wordpressadmin
-Passwsord: wordpressadminsupersecret
+* Login: ```wordpressadmin```
+* Passwsord: ```wordpressadminsupersecret```
 
 
