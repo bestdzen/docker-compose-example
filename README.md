@@ -8,7 +8,7 @@
 * WordPress (2 app): 6.1.1-php8.2-fpm
 * Redis: 5.0.7-alpine
 * phpMyAdmin: Latest
-
+The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
 **Opcache** - его главная задача — единожды скомпилировать каждый PHP-скрипт 
 и закэшировать получившиеся опкоды в общую память, чтобы их мог считать и
 выполнить каждый рабочий процесс PHP
