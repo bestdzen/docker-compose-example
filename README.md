@@ -24,13 +24,11 @@
 graph TD;
     Nginx-->Nginx-backend1;
     Nginx-->Nginx-backend2;
-    Nginx-backend1-->WordPress-php-fpm-1;
+    Nginx-backend1-->WordPress-php-fpm-1[WordPress-php-fpm-1 + opcache];
     Nginx-backend2-->WordPress-php-fpm-1;
-    Nginx-backend1-->WordPress-php-fpm-2;
+    Nginx-backend1-->WordPress-php-fpm-2[WordPress-php-fpm-2 + opcache];;
     Nginx-backend2-->WordPress-php-fpm-2;
-    WordPress-php-fpm-1-->Redis;
-    WordPress-php-fpm-1;
-    MariaDB;   
+    WordPress-php-fpm-1-->Redis;    
     WordPress-php-fpm-1-->MariaDB;
     WordPress-php-fpm-2-->Redis;    
     WordPress-php-fpm-2-->MariaDB;
