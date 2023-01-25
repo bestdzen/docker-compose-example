@@ -1,5 +1,4 @@
-**Пример создания тестовой среды для разработки на WordPress**
-reverse proxy с балансировкой нагрузки,  в контейнерах Docker.
+**Пример создания тестовой среды для разработки на WordPress. Контейнеры Docker**
 
 **Запуск:**
 docker-compose --compatibility --env-file .env -f docker-compose.pub.yml up -d
