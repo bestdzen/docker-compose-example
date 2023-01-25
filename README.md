@@ -67,6 +67,12 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 ### Запуск контейнеров с помощью docker-compose
+```bash
+$ git clone https://github.com/bestdzen/microcluster
+$ cd microcluster
+$ docker-compose --compatibility --env-file .env -f docker-compose.pub.yml up -d
+```
+
 
 
 
