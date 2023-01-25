@@ -8,16 +8,26 @@
 * WordPress (2 app): 6.1.1-php8.2-fpm
 * Redis: 5.0.7-alpine
 * phpMyAdmin: Latest
-The background color should be `#ffffff` for light mode and `#0d1117` for dark mode.
-**Opcache** - его главная задача — единожды скомпилировать каждый PHP-скрипт 
-и закэшировать получившиеся опкоды в общую память, чтобы их мог считать и
-выполнить каждый рабочий процесс PHP
 
 **Redis** — сетевое журналируемое хранилище данных типа "ключ" — "значение" с открытым исходным кодом.
 При загрузке страницы необходимый SQL-запрос извлекается из памяти Redis; благодаря этому база данных не 
 перегружается дублируемыми запросами. В результате страница загружается значительно быстрее, а влияние
 сервера на ресурсы базы данных уменьшается. Если поступивший запрос не обнаружен в памяти Redis,
 он извлекается из базы данных, после чего добавляется в кэш-память Redis.
+
+## Схема работы
+```mermaid
+sequenceDiagram
+Alice ->> Bob: Hello Bob, how are you?
+Bob-->>John: How about you John?
+Bob--x Alice: I am good thanks!
+Bob-x John: I am good thanks!
+Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+
+Bob-->Alice: Checking with John...
+Alice->John: Yes... John, how are you?
+```
+
 
 ```yaml
 version: '3.3'
