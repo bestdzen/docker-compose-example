@@ -74,7 +74,7 @@ $ docker-compose --compatibility --env-file .env -f docker-compose.pub.yml up -d
 ```
 
 ### Заходим на сервис:
-* https://example.com
+* [https://example.com](https://example.com/wp-admin/)
 
 ## Учетные данные
 * Login: ```wordpressadmin```
