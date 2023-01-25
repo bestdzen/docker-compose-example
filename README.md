@@ -24,8 +24,8 @@
 graph TD;
     Nginx-->Nginx-backend1;
     Nginx-->Nginx-backend2;
-    Nginx-backend1-->WordPress-php-fpm-1[WordPress-php-fpm-1 + opcache];
-    Nginx-backend2-->WordPress-php-fpm-1;
+    Nginx-backend1[Nginx-backend1+FastCGI cache]-->WordPress-php-fpm-1[WordPress-php-fpm-1 + opcache];
+    Nginx-backend2[Nginx-backend2+FastCGI cache]-->WordPress-php-fpm-1;
     Nginx-backend1-->WordPress-php-fpm-2[WordPress-php-fpm-2 + opcache];;
     Nginx-backend2-->WordPress-php-fpm-2;
     WordPress-php-fpm-1-->Redis;    
