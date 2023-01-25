@@ -73,11 +73,11 @@ $ cd microcluster
 $ docker-compose --compatibility --env-file .env -f docker-compose.pub.yml up -d
 ```
 
+### Заходим на сервис:
+* https://example.com
 
-
-
-
-
-
+## Учетные данные
+Login: wordpressadmin
+Passwsord: wordpressadminsupersecret
 
 
