@@ -50,5 +50,10 @@ graph TD;
 ---
 Для корректной работы измените переменную окружения PUBLIC_IP в файле .env
 
+> ### @ icon-info-circle Headers break on their own
+> Note that headers don't need line continuation characters 
+> as they are block elements and automatically break. Only text lines
+> require the double spaces for single line breaks.
+
 
 
