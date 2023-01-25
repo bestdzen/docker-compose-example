@@ -22,7 +22,7 @@
 ## Схема работы
 ```mermaid
 graph TD;
-    Nginx-->Nginx-backend1;
+    Nginx[Nginx proxy balancer]-->Nginx-backend1;
     Nginx-->Nginx-backend2;
     Nginx-backend1[Nginx-backend1+FastCGI cache]-->WordPress-php-fpm-1[WordPress-php-fpm-1 + opcache];
     Nginx-backend2[Nginx-backend2+FastCGI cache]-->WordPress-php-fpm-1;
