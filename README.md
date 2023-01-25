@@ -7,6 +7,7 @@ docker-compose --compatibility --env-file .env -f docker-compose.pub.yml up -d
 docker-compose --compatibility --env-file .env -f docker-compose.pub.yml down 
 
 **Образы:**
+
 Nginx (proxy):   1.23.1
 
 Nginx (backend): 1.23.1
