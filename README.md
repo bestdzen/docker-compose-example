@@ -1,24 +1,37 @@
 **Пример создания тестовой среды для разработки на WordPress. Контейнеры Docker**
 
-**Запуск:**
+Для корректной работы измените переменную окружения в файлу .env
+PUBLIC_IP=IP_вашего_комьютера
+В файл hosts добавьте запись: 
+IP_вашего_комьютера example.com
+IP_вашего_комьютера www.example.com
+
+Запустите создание контейнеров из образов:
 docker-compose --compatibility --env-file .env -f docker-compose.pub.yml up -d
+
+Зайдите в браузере на по сссылке: https://example.com 
 
 **Останов:**
 docker-compose --compatibility --env-file .env -f docker-compose.pub.yml down 
 
-**Образы:**
 
-**Nginx (proxy):**   1.23.1
 
-**Nginx (backend):** 1.23.1
+**Nginx (proxy):**   1.23.1           1 контейнер
 
-**MariaDB:**         10.6.11
+**Nginx (backend):** 1.23.1           2 контейнера
 
-**WordPress:**       6.1.1-php8.2-fpm
+**MariaDB:**         10.6.11          1 контейнер
 
-**Redis:**           5.0.7-alpine     
+**WordPress:**       6.1.1-php8.2-fpm 2 контейнера
 
-**phpMyAdmin:**      Latest
+**Redis:**           5.0.7-alpine     1 контейнер
+
+**phpMyAdmin:**      Latest           1 контейнер
+
+Самоподписанный сертификат SSL для домена example.com
+
+Сеть докера: bridge, 172.16.2.0/24
+
 
 **Opcache** - его главная задача — единожды скомпилировать каждый PHP-скрипт 
 и закэшировать получившиеся опкоды в общую память, чтобы их мог считать и
@@ -37,19 +50,19 @@ docker-compose --compatibility --env-file .env -f docker-compose.pub.yml down
                                          |----------------|
                                                  / \ Балансировка нагрузки на web серверы (round-robin)
                                   |--------------------------------|            
-                                  | Nginx backend-1 Nginx backend-2| 
+                                  | Nginx backend-1 Nginx backend-2| Сжатие gzip, FastCGI cache
                                   |--------------------------------|
                                                 / \                  \
                                                /   \                  \
-                   Балансировка нагрузки для FastCGI (round-robin )   
-           |-------------------------------------------------------|   |----------| 
-           |------- wordpress (php-fpm) wordpress (php-fpm)--------|   |phpMyAdmin|
-           |         Redis Object Cache    Redis Object Cache      |   |----------|   
-           |--------php opcache --------php opcache  --------------|        |
-                    Кеш Redis для Wordpress   |                             |
-                              /               |                             |
-                         |-------|        |---------|                       |
-                         | Redis |        | MariaDB |-----------------------|
-                         |-------|        |---------|
+                               Балансировка нагрузки для round-robin 
+                      |-------------------------------------------------------|   |----------| 
+                      |------- wordpress (php-fpm) wordpress (php-fpm)--------|   |phpMyAdmin|
+                      |         Redis Object Cache    Redis Object Cache      |   |----------|   
+                      |--------php opcache --------php opcache  --------------|        |
+                               Кеш Redis для Wordpress   |                             |
+                                         /               |                             |
+                                     |-------|        |---------|                      |
+                                     | Redis |        | MariaDB |----------------------|
+                                     |-------|        |---------|
                          
                                                    
