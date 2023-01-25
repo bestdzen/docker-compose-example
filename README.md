@@ -54,7 +54,11 @@ graph TD;
 - <IP адрес вашего компьютера> **`example.com`**
 - <IP адрес вашего компьютера> **`www.example.com`**
 
-### Установка Docker :)
+### Установка Docker на Ubuntu и Debian
+```bash
+$ sudo apt-get update
+$ sudo apt install docker-ce -y
+```
 
 
 
